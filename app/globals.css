@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  /* Marca (memory-meds-pro) */
+  --color-brand: #0963b5;
+  --color-brand-foreground: #f9fcff;
+  --color-accent: #d7eaff;
+  --color-accent-foreground: #0a2e54;
+  --color-cta: #007f35;
+  --color-cta-hover: #006b2c;
+  --color-cream: #fffaf0;
+  --color-cream-deep: #f4eee0;
+  --color-card: #ffffff;
+  --color-ink: #0d1926;
+  --color-muted: #424e5d;
+  --color-line: #b6c6d7;
+  --color-line-input: #a7bacd;
+  --color-danger: #c50516;
+  --color-warning: #d46600;
+  /* Firma: compartimentos (PMV) */
+  --color-morning: #f6c835;
+  --color-afternoon: #f3821d;
+  --color-night: #1e3263;
+
+  --radius-card: 1rem;
+  --font-sans: var(--font-atkinson), ui-sans-serif, system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+h1, h2, h3 { font-weight: 700; line-height: 1.15; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Foco visible y selección */
+:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+
+/* LED del pastillero: pulso suave */
+@keyframes led-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.55;
+    filter: brightness(1.25);
+  }
+}
+
+.led-pulse {
+  animation: led-pulse 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .led-pulse {
+    animation: none;
+    opacity: 1;
+    filter: none;
+  }
+}

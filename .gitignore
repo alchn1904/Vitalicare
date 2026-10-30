@@ -9,3 +9,8 @@ out
 next-env.d.ts
 .DS_Store
 .claude/settings.local.json
+/coverage
+/build
+*.pem
+.pnp
+.pnp.*
