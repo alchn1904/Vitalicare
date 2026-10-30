@@ -75,3 +75,47 @@ h1, h2, h3 { font-weight: 700; line-height: 1.15; }
     filter: none;
   }
 }
+
+/* Anillo de foco claro para fondos oscuros (marca, noche) */
+.focus-ring-light:focus-visible,
+.focus-ring-light :focus-visible {
+  outline-color: var(--color-brand-foreground);
+}
+
+/* Header: borde inferior que aparece al hacer scroll (scroll-driven; sin soporte, borde fijo) */
+.header-scroll-border {
+  border-bottom: 1px solid var(--color-line);
+}
+
+@keyframes header-border-in {
+  from {
+    border-bottom-color: transparent;
+  }
+  to {
+    border-bottom-color: var(--color-line);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .header-scroll-border {
+    animation: header-border-in linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 48px;
+  }
+}
+
+
+/* Zoom de texto al 200%: los hijos de grid/flex pueden encogerse en vez de desbordar */
+@layer base {
+  main .grid > *,
+  footer .grid > * {
+    min-width: 0;
+  }
+  p,
+  h1,
+  h2,
+  h3,
+  label {
+    overflow-wrap: anywhere;
+  }
+}

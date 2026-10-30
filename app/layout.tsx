@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Atkinson_Hyperlegible } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { MotionProvider } from "@/components/motion/motion-provider";
+import { JsonLd } from "@/components/seo/json-ld";
 import { nav, site } from "@/content/landing";
 import { indexable, siteUrl } from "@/lib/config";
 import "./globals.css";
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         >
           {nav.skipLink}
         </a>
+        <JsonLd />
         <MotionProvider>{children}</MotionProvider>
         <Analytics />
       </body>

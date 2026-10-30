@@ -16,3 +16,20 @@
 - `components/waitlist-form.tsx` — formulario de lista de espera (stub hasta la tarea 3)
 - `content/landing.ts` — TODO el copy tipado (site, nav, hero…footer, stickyCta)
 - `lib/config.ts` — constantes públicas desde env (URLs, flags, contacto, WhatsApp, redes)
+- `components/ui/cta-button.tsx` — botón de acción (verde CTA) y variante secundaria; franja de compartimentos opcional
+- `components/ui/section-heading.tsx` — H2 + apertura de sección
+- `components/ui/text.ts` — helpers de texto (capitalizar, partir frases)
+- `components/site-header.tsx` · `site-footer.tsx` · `sticky-cta.tsx` — header, footer (redes, legal, contacto) y barra pegajosa móvil
+- `components/hero.tsx` · `problem.tsx` · `how-it-works.tsx` · `benefits.tsx` · `prototype-showcase.tsx` · `validation-strip.tsx` · `pricing.tsx` · `faq.tsx` · `waitlist-section.tsx` — secciones §4.1-4.9 en orden
+- `components/brand-mark.tsx` · `compartment-divider.tsx` · `pillbox-illustration.tsx` — marca, franja de firma, SVG del hero (LED)
+- `components/illustrations/*` — SVG de los pasos y del bloque del formulario
+- `components/motion/reveal.tsx` · `count-up.tsx` · `drawn-underline.tsx` · `ease.ts` — movimiento (Reveal + fallback noscript, contador, subrayado)
+- `components/waitlist-form.tsx` — formulario RHF + Zod + Server Action
+- `lib/waitlist-schema.ts` — esquema Zod compartido, tipos y estado del formulario
+- `app/actions/waitlist.ts` — Server Action (honeypot, validación, Resend opcional)
+- `components/seo/json-ld.tsx` — JSON-LD Organization + WebSite
+- `components/legal/legal-page.tsx` · `content/legal.ts` — plantilla y copy de páginas legales
+- `app/privacidad/page.tsx` · `app/terminos/page.tsx` — páginas legales (borrador)
+- `app/sitemap.ts` · `app/robots.ts` · `app/opengraph-image.tsx` — SEO técnico
+- `README.md` — cómo correr, variables, despliegue y pendientes
+- `.github/workflows/ci.yml` — CI: lint, tsc y build

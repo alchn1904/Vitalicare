@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      # Valores de ejemplo (de .env.example). Sin secretos.
+      NEXT_PUBLIC_SITE_URL: https://vitalicare.vercel.app
+      NEXT_PUBLIC_PMV_URL: https://vitali-care-pmv.lovable.app/
+      NEXT_PUBLIC_INDEXABLE: "false"
+      NEXT_PUBLIC_SHOW_VALIDATION: "false"
+      NEXT_PUBLIC_CONTACT_EMAIL: hola@vitalicare.pe
+      NEXT_PUBLIC_WHATSAPP_NUMBER: "51900000000"
+      RESEND_API_KEY: ""
+      WAITLIST_NOTIFY_TO: ""
+      WAITLIST_FROM: ""
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npx tsc --noEmit
+      - run: npm run build

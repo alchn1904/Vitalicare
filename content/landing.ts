@@ -19,6 +19,8 @@ export const nav = {
   logo: "VitaliCare",
   homeHref: "/",
   skipLink: "Saltar al contenido",
+  ariaLabel: "Principal",
+  homeLabel: "VitaliCare, ir al inicio",
   links: [
     { label: "Cómo funciona", href: "#como-funciona" },
     { label: "Prototipo", href: "#prototipo" },
@@ -30,6 +32,8 @@ export const nav = {
   logo: string;
   homeHref: string;
   skipLink: string;
+  ariaLabel: string;
+  homeLabel: string;
   links: readonly Anchor[];
   cta: Anchor;
 };
@@ -49,6 +53,14 @@ export const hero = {
   trustLine: "Proyecto en validación con familias de Lima",
   illustrationAlt:
     "Pastillero inteligente VitaliCare con tres compartimentos de mañana, tarde y noche",
+  // Micro-textos dentro de la ilustración del pastillero (decorativos; el SVG usa illustrationAlt)
+  illustration: {
+    morning: "Mañana",
+    afternoon: "Tarde",
+    night: "Noche",
+    time: "8:00 a. m.",
+    button: "YA TOMÉ",
+  },
 } as const;
 
 export type Card = {
@@ -113,6 +125,14 @@ export const howItWorks = {
         "Si pasan 15, 20 o 30 minutos (tú eliges) sin confirmar, te llega un aviso. Si todo va bien, no te llega nada.",
     },
   ],
+  // Micro-textos dentro de las ilustraciones de cada paso (decorativos)
+  illustrations: {
+    alarmCompartment: "Mañana",
+    confirmButton: "YA TOMÉ",
+    notifySender: "VitaliCare",
+    notifyMessage: "María no confirmó su pastilla",
+    notifyDelay: "15 min",
+  },
 } as const;
 
 // 4.4 Beneficios
@@ -128,6 +148,8 @@ export const benefits = {
     { title: "Funciona sin internet", description: "la alarma sigue sonando" },
     { title: "Privacidad", description: "solo registra si tomó o no, sin diagnósticos" },
   ],
+  // Micro-texto del botón dibujado en la tarjeta 2 (decorativo)
+  buttonLabel: "YA TOMÉ",
 } as const satisfies { items: readonly Card[] } & Record<string, unknown>;
 
 // 4.5 Prototipo
@@ -136,6 +158,7 @@ export const prototype = {
   title: "Mira cómo se ve la app del familiar",
   intro: "Así se ve el prototipo: la alarma, el botón y el aviso al familiar.",
   cta: { label: "Probar el prototipo" },
+  screensLabel: "Pantallas del prototipo",
   note: "Representación ilustrativa. El prototipo es una versión en pruebas.",
   exampleNotice:
     "VitaliCare: María no confirmó su pastilla de las 8:00 a. m. hace 15 minutos.",
@@ -199,6 +222,7 @@ export const pricing = {
     { title: "Pastillero · desde ≈ S/ 200", label: "Pastillero", price: "desde ≈ S/ 200" },
     { title: "App y avisos · ≈ S/ 15 al mes", label: "App y avisos", price: "≈ S/ 15 al mes" },
   ],
+  badge: "Precio de referencia",
   note: "Precio de referencia en preventa. Puede cambiar al lanzamiento.",
   cta: { label: "Reservar mi lugar", href: "#lista-de-espera" },
   ctaMicrocopy: "Reservar no te obliga a comprar",
@@ -256,6 +280,14 @@ export const waitlist = {
   title: "Reserva tu lugar en la lista de espera",
   intro: "Déjanos tu nombre y un contacto y te avisamos cuando abramos cupos.",
   imageAlt: "Hijo revisando en su celular que su mamá confirmó su pastilla",
+  // Micro-textos dentro de la ilustración del celular (decorativos)
+  illustration: {
+    heading: "Registro de hoy",
+    person: "Mamá",
+    compartment: "Mañana",
+    status: "Confirmó",
+    time: "8:00 a. m.",
+  },
   fields: {
     name: { label: "Nombre" },
     contact: {
@@ -279,6 +311,7 @@ export const waitlist = {
     },
   },
   submit: "Unirme a la lista de espera",
+  submitting: "Enviando…",
   errors: {
     name: "Escribe tu nombre",
     contact: "Escribe un celular de 9 dígitos que empiece con 9, o un correo con @",
@@ -301,6 +334,10 @@ export const footer = {
     instagram: "Instagram",
     whatsapp: "WhatsApp",
   },
+  legalNavLabel: "Legal",
+  contactNavLabel: "Contacto y redes",
+  emailLabel: "Correo",
+  copyrightPrefix: "©",
   academicNote:
     "VitaliCare es un proyecto académico (USIL · Oportunidad de Negocios · Grupo 7). No reemplaza el consejo médico ni es un dispositivo médico certificado.",
 } as const;
@@ -309,4 +346,10 @@ export const footer = {
 export const stickyCta = {
   label: "Unirme a la lista de espera",
   href: "#lista-de-espera",
+} as const;
+
+// Textos compartidos
+export const common = {
+  illustrativeNote: "Representación ilustrativa",
+  newTab: "(se abre en una pestaña nueva)",
 } as const;
